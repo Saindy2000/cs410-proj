@@ -47,5 +47,5 @@ class Transformer(nn.Module):
         o = self.pool(o.transpose(0, 2)).transpose(2, 0).squeeze(0)
         u_embs = self.u_decode(o)
         i_embs = self.i_decode(o)
-        r = nn.functional.softmax(self.r_decode(o))[:, 0]
+        r = torch.mul(u_embs, i_embs).sum(dim=1)
         return u_embs, i_embs, r

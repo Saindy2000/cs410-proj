@@ -10,6 +10,16 @@ from torchtext.vocab import build_vocab_from_iterator
 class config:
     n = 16518
     m = 11794
+    d = 128
+    h = 256
+    batch_size = 128
+    test_batch_size = 512
+    n_epoch = 20
+    reg = 1e-4
+    cl = 0.2
+    lr = 1e-4
+    k = 10
+    train = False
 
 def collate_batch(it, st, end):
     MAX_LENGTH = 64
@@ -65,3 +75,4 @@ def yield_tokens(data_iter):
 vocab = build_vocab_from_iterator(yield_tokens(train), specials=["<unk>"])
 vocab.set_default_index(vocab["<unk>"])
 text_pipeline = lambda x: vocab(tokenizer(x))
+vocab_size = len(vocab)

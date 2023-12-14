@@ -10,6 +10,8 @@ cd code
 
 If you want to load trained model parameters and test its performance:
 
+(also see demo.mp4: a demo for loading trained model parameters and run the code in anaconda console)
+
 ```python
 python ./code/train.py --load True
 ```
@@ -34,6 +36,7 @@ If you want to edit the hyperparameters, open dataset.py and edit class config.
 - proposal
 - progress report
 - final report
+- demo.mp4: demo for loading trained model parameters and run the code in anaconda console
 - ./code: codes and data
   - Digital_Music_5.json: raw dataset
   - text.pkl, test.pkl, user-item.pkl: Preprocessed dataset, including training dataset, testing dataset, user-item graph extracted from training dataset

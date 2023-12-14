@@ -6,6 +6,14 @@ from torch.optim import Adam
 import utils
 import numpy as np
 import scipy.sparse as sp
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--load", type=bool, default=True,
+                    help="Whether to load trained model.")
+args = parser.parse_args()
+
+config.train = not args.load
 
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 

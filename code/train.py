@@ -67,6 +67,7 @@ if config.train:
             best_epoch = epoch+1
             torch.save(model.state_dict(), 'model_{}.pt'.format(epoch+1))
     print('Best Epoch ', best_epoch)
+    model.load_state_dict(torch.load('model_{}.pt'.format(best_epoch)))
 
 if not config.train:
     model.load_state_dict(torch.load('model_best.pt'))
